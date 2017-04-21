@@ -1,0 +1,17 @@
+c2156e,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/platform,1492760343,1ffe68,200
+1ffe68,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/platform,1492760343,,404
+a65d4e,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/platform/add,1492760362,,302
+4aeb3f,127.0.0.1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Dfr%26_controller%3DOCPlatformBundle%253AAdvert%253Amenu,1492760384,b864bf,200
+c8ca7d,127.0.0.1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Dfr%26_controller%3DOCPlatformBundle%253AAdvert%253Amenu,1492760384,b864bf,200
+b864bf,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/,1492760384,,200
+05b9ad,127.0.0.1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Dfr%26_controller%3DOCPlatformBundle%253AAdvert%253Amenu,1492760390,797865,200
+797865,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/login,1492760391,,200
+798284,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/platform,1492760403,851573,200
+851573,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/platform,1492760403,,404
+a65497,127.0.0.1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Dfr%26_controller%3DOCPlatformBundle%253AAdvert%253Amenu,1492760412,ebe2a3,200
+fffb09,127.0.0.1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Dfr%26_controller%3DOCPlatformBundle%253AAdvert%253Amenu,1492760412,ebe2a3,200
+ebe2a3,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/,1492760412,,200
+355688,127.0.0.1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Dfr%26_controller%3DOCPlatformBundle%253AAdvert%253Amenu,1492760532,5b7c26,200
+5b7c26,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/login,1492760532,,200
+346439,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/add,1492760543,de4161,200
+de4161,::1,GET,http://localhost/mooc-symfony-master/web/app_dev.php/add,1492760543,,404
