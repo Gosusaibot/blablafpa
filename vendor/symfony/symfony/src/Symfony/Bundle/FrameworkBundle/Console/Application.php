@@ -39,10 +39,10 @@ class Application extends BaseApplication
     {
         $this->kernel = $kernel;
 
-        parent::__construct('Symfony', Kernel::VERSION.' - '.$kernel->getName().'/'.$kernel->getEnvironment().($kernel->isDebug() ? '/debug' : ''));
+        parent::__construct('Symfony', Kernel::VERSION);
 
-        $this->getDefinition()->addOption(new InputOption('--env', '-e', InputOption::VALUE_REQUIRED, 'The Environment name.', $kernel->getEnvironment()));
-        $this->getDefinition()->addOption(new InputOption('--no-debug', null, InputOption::VALUE_NONE, 'Switches off debug mode.'));
+        $this->getDefinition()->addOption(new InputOption('--env', '-e', InputOption::VALUE_REQUIRED, 'The environment name', $kernel->getEnvironment()));
+        $this->getDefinition()->addOption(new InputOption('--no-debug', null, InputOption::VALUE_NONE, 'Switches off debug mode'));
     }
 
     /**
@@ -67,12 +67,6 @@ class Application extends BaseApplication
     {
         $this->kernel->boot();
 
-        if (!$this->commandsRegistered) {
-            $this->registerCommands();
-
-            $this->commandsRegistered = true;
-        }
-
         $container = $this->kernel->getContainer();
 
         foreach ($this->all() as $command) {
@@ -86,8 +80,54 @@ class Application extends BaseApplication
         return parent::doRun($input, $output);
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function find($name)
+    {
+        $this->registerCommands();
+
+        return parent::find($name);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function get($name)
+    {
+        $this->registerCommands();
+
+        return parent::get($name);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function all($namespace = null)
+    {
+        $this->registerCommands();
+
+        return parent::all($namespace);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLongVersion()
+    {
+        return parent::getLongVersion().sprintf(' (kernel: <comment>%s</>, env: <comment>%s</>, debug: <comment>%s</>)', $this->kernel->getName(), $this->kernel->getEnvironment(), $this->kernel->isDebug() ? 'true' : 'false');
+    }
+
     protected function registerCommands()
     {
+        if ($this->commandsRegistered) {
+            return;
+        }
+
+        $this->commandsRegistered = true;
+
+        $this->kernel->boot();
+
         $container = $this->kernel->getContainer();
 
         foreach ($this->kernel->getBundles() as $bundle) {

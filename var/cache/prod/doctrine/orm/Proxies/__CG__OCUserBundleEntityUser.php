@@ -64,10 +64,10 @@ class User extends \OC\UserBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', 'id', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'locked', 'expired', 'expiresAt', 'roles', 'credentialsExpired', 'credentialsExpireAt'];
+            return ['__isInitialized__', 'id', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles'];
         }
 
-        return ['__isInitialized__', 'id', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'locked', 'expired', 'expiresAt', 'roles', 'credentialsExpired', 'credentialsExpireAt'];
+        return ['__isInitialized__', 'id', 'username', 'usernameCanonical', 'email', 'emailCanonical', 'enabled', 'salt', 'password', 'plainPassword', 'lastLogin', 'confirmationToken', 'passwordRequestedAt', 'groups', 'roles'];
     }
 
     /**
@@ -389,45 +389,12 @@ class User extends \OC\UserBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     /**
      * {@inheritDoc}
      */
-    public function isCredentialsExpired()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isCredentialsExpired', []);
-
-        return parent::isCredentialsExpired();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function isEnabled()
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'isEnabled', []);
 
         return parent::isEnabled();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function isExpired()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isExpired', []);
-
-        return parent::isExpired();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function isLocked()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'isLocked', []);
-
-        return parent::isLocked();
     }
 
     /**
@@ -477,23 +444,12 @@ class User extends \OC\UserBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
     /**
      * {@inheritDoc}
      */
-    public function setCredentialsExpireAt(\DateTime $date = NULL)
+    public function setSalt($salt)
     {
 
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCredentialsExpireAt', [$date]);
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setSalt', [$salt]);
 
-        return parent::setCredentialsExpireAt($date);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setCredentialsExpired($boolean)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCredentialsExpired', [$boolean]);
-
-        return parent::setCredentialsExpired($boolean);
+        return parent::setSalt($salt);
     }
 
     /**
@@ -527,28 +483,6 @@ class User extends \OC\UserBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEnabled', [$boolean]);
 
         return parent::setEnabled($boolean);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setExpired($boolean)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setExpired', [$boolean]);
-
-        return parent::setExpired($boolean);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setExpiresAt(\DateTime $date = NULL)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setExpiresAt', [$date]);
-
-        return parent::setExpiresAt($date);
     }
 
     /**
@@ -593,17 +527,6 @@ class User extends \OC\UserBundle\Entity\User implements \Doctrine\ORM\Proxy\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLastLogin', [$time]);
 
         return parent::setLastLogin($time);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function setLocked($boolean)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLocked', [$boolean]);
-
-        return parent::setLocked($boolean);
     }
 
     /**

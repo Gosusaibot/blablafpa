@@ -257,7 +257,7 @@ class Application extends \OC\PlatformBundle\Entity\Application implements \Doct
     /**
      * {@inheritDoc}
      */
-    public function setDate(\DateTime $date)
+    public function setDate(\Datetime $date)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDate', [$date]);

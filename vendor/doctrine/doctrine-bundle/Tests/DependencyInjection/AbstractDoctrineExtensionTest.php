@@ -17,6 +17,7 @@ namespace Doctrine\Bundle\DoctrineBundle\Tests\DependencyInjection;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\Compiler\EntityListenerPass;
 use Doctrine\Bundle\DoctrineBundle\DependencyInjection\DoctrineExtension;
 use Doctrine\ORM\Version;
+use Symfony\Bridge\Doctrine\DependencyInjection\CompilerPass\RegisterEventListenersAndSubscribersPass;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
@@ -75,6 +76,7 @@ abstract class AbstractDoctrineExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('pgsql_user', $config['user']);
         $this->assertSame('pgsql_s3cr3t', $config['password']);
         $this->assertSame('require', $config['sslmode']);
+        $this->assertSame('postgresql-ca.pem', $config['sslrootcert']);
         $this->assertSame('utf8', $config['charset']);
 
         // doctrine.dbal.sqlanywhere_connection
@@ -734,6 +736,22 @@ abstract class AbstractDoctrineExtensionTest extends \PHPUnit_Framework_TestCase
         $this->assertDICDefinitionMethodCallOnce($definition, 'setAutoCommit', array(false));
     }
 
+    public function testDbalOracleConnectstring()
+    {
+        $container = $this->loadContainer('dbal_oracle_connectstring');
+
+        $config = $container->getDefinition('doctrine.dbal.default_connection')->getArgument(0);
+        $this->assertSame('scott@sales-server:1521/sales.us.example.com', $config['connectstring']);
+    }
+
+    public function testDbalOracleInstancename()
+    {
+        $container = $this->loadContainer('dbal_oracle_instancename');
+
+        $config = $container->getDefinition('doctrine.dbal.default_connection')->getArgument(0);
+        $this->assertSame('mySuperInstance', $config['instancename']);
+    }
+
     public function testDbalSchemaFilter()
     {
         $container = $this->loadContainer('dbal_schema_filter');
@@ -789,6 +807,112 @@ abstract class AbstractDoctrineExtensionTest extends \PHPUnit_Framework_TestCase
 
         $attachListener = $container->getDefinition('doctrine.orm.em2_listeners.attach_entity_listeners');
         $this->assertDICDefinitionMethodCallOnce($attachListener, 'addEntityListener', array('My/Entity2', 'EntityListener2', 'preFlush', 'preFlushHandler'));
+    }
+
+    public function testAttachEntityListenersTwoConnections()
+    {
+        if (version_compare(Version::VERSION, '2.5.0-DEV') < 0) {
+            $this->markTestSkipped('Attaching entity listeners by tag requires doctrine-orm 2.5.0 or newer');
+        }
+
+        $container = $this->getContainer(['YamlBundle']);
+        $loader = new DoctrineExtension();
+        $container->registerExtension($loader);
+        $container->addCompilerPass(new RegisterEventListenersAndSubscribersPass('doctrine.connections', 'doctrine.dbal.%s_connection.event_manager', 'doctrine'));
+
+        $this->loadFromFile($container, 'orm_attach_entity_listeners_two_connections');
+
+        $this->compileContainer($container);
+
+        $defaultEventManager = $container->getDefinition('doctrine.dbal.default_connection.event_manager');
+        $this->assertDICDefinitionNoMethodCall($defaultEventManager, 'addEventListener', [['loadClassMetadata'], new Reference('doctrine.orm.em2_listeners.attach_entity_listeners')]);
+        $this->assertDICDefinitionMethodCallOnce($defaultEventManager, 'addEventListener', [['loadClassMetadata'], new Reference('doctrine.orm.em1_listeners.attach_entity_listeners')]);
+
+        $foobarEventManager = $container->getDefinition('doctrine.dbal.foobar_connection.event_manager');
+        $this->assertDICDefinitionNoMethodCall($foobarEventManager, 'addEventListener', [['loadClassMetadata'], new Reference('doctrine.orm.em1_listeners.attach_entity_listeners')]);
+        $this->assertDICDefinitionMethodCallOnce($foobarEventManager, 'addEventListener', [['loadClassMetadata'], new Reference('doctrine.orm.em2_listeners.attach_entity_listeners')]);
+    }
+
+    public function testAttachLazyEntityListener()
+    {
+        if (version_compare(Version::VERSION, '2.5.0-DEV') < 0) {
+            $this->markTestSkipped('Attaching entity listeners by tag requires doctrine-orm 2.5.0 or newer');
+        }
+
+        $container = $this->getContainer(array());
+        $loader = new DoctrineExtension();
+        $container->registerExtension($loader);
+        $container->addCompilerPass(new EntityListenerPass());
+
+        $this->loadFromFile($container, 'orm_attach_lazy_entity_listener');
+
+        $this->compileContainer($container);
+
+        $resolver1 = $container->getDefinition('doctrine.orm.em1_entity_listener_resolver');
+        $this->assertDICDefinitionMethodCallOnce($resolver1, 'registerService', array('EntityListener1', 'entity_listener1'));
+
+        $resolver2 = $container->findDefinition('custom_entity_listener_resolver');
+        $this->assertDICDefinitionMethodCallOnce($resolver2, 'registerService', array('EntityListener2', 'entity_listener2'));
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage EntityListenerServiceResolver
+     */
+    public function testLazyEntityListenerResolverWithoutCorrectInterface()
+    {
+        if (version_compare(Version::VERSION, '2.5.0-DEV') < 0) {
+            $this->markTestSkipped('Attaching entity listeners by tag requires doctrine-orm 2.5.0 or newer');
+        }
+
+        $container = $this->getContainer(array());
+        $loader = new DoctrineExtension();
+        $container->registerExtension($loader);
+        $container->addCompilerPass(new EntityListenerPass());
+
+        $this->loadFromFile($container, 'orm_entity_listener_lazy_resolver_without_interface');
+
+        $this->compileContainer($container);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessageRegExp /The service ".*" must be public as this entity listener is lazy-loaded/
+     */
+    public function testPrivateLazyEntityListener()
+    {
+        if (version_compare(Version::VERSION, '2.5.0-DEV') < 0) {
+            $this->markTestSkipped('Attaching entity listeners by tag requires doctrine-orm 2.5.0 or newer');
+        }
+
+        $container = $this->getContainer(array());
+        $loader = new DoctrineExtension();
+        $container->registerExtension($loader);
+        $container->addCompilerPass(new EntityListenerPass());
+
+        $this->loadFromFile($container, 'orm_entity_listener_lazy_private');
+
+        $this->compileContainer($container);
+    }
+
+    /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessageRegExp /The service ".*" must not be abstract as this entity listener is lazy-loaded/
+     */
+    public function testAbstractLazyEntityListener()
+    {
+        if (version_compare(Version::VERSION, '2.5.0-DEV') < 0) {
+            $this->markTestSkipped('Attaching entity listeners by tag requires doctrine-orm 2.5.0 or newer');
+        }
+
+        $container = $this->getContainer(array());
+        $loader = new DoctrineExtension();
+        $container->registerExtension($loader);
+        $container->addCompilerPass(new EntityListenerPass());
+
+        $this->loadFromFile($container, 'orm_entity_listener_lazy_abstract');
+
+        $this->compileContainer($container);
     }
 
     public function testRepositoryFactory()
@@ -907,6 +1031,27 @@ abstract class AbstractDoctrineExtensionTest extends \PHPUnit_Framework_TestCase
         }
 
         $this->assertEquals($nbCalls, $called, sprintf('The method "%s" should be called %d times', $methodName, $nbCalls));
+    }
+
+    /**
+     * Assertion for the DI Container, check if the given definition does not contain a method call with the given parameters.
+     *
+     * @param Definition $definition
+     * @param string     $methodName
+     * @param array      $params
+     */
+    private function assertDICDefinitionNoMethodCall(Definition $definition, $methodName, array $params = null)
+    {
+        $calls = $definition->getMethodCalls();
+        foreach ($calls as $call) {
+            if ($call[0] == $methodName) {
+                if ($params !== null) {
+                    $this->assertNotEquals($params, $call[1], "Method '" . $methodName . "' is not expected to be called with the given parameters.");
+                } else {
+                    $this->fail("Method '" . $methodName . "' is not expected to be called");
+                }
+            }
+        }
     }
 
     private function compileContainer(ContainerBuilder $container)

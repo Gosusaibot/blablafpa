@@ -11,10 +11,11 @@
 
 namespace Symfony\Bundle\FrameworkBundle\Tests\DependencyInjection\Compiler;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\PropertyInfoPass;
 use Symfony\Component\DependencyInjection\Reference;
 
-class PropertyInfoPassTest extends \PHPUnit_Framework_TestCase
+class PropertyInfoPassTest extends TestCase
 {
     public function testServicesAreOrderedAccordingToPriority()
     {
@@ -30,9 +31,10 @@ class PropertyInfoPassTest extends \PHPUnit_Framework_TestCase
             new Reference('n3'),
         );
 
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder', array('findTaggedServiceIds'));
+        $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->setMethods(array('findTaggedServiceIds'))->getMock();
 
-        $container->expects($this->any())
+        $container
+            ->expects($this->any())
             ->method('findTaggedServiceIds')
             ->will($this->returnValue($services));
 
@@ -51,11 +53,13 @@ class PropertyInfoPassTest extends \PHPUnit_Framework_TestCase
 
     public function testReturningEmptyArrayWhenNoService()
     {
-        $container = $this->getMock('Symfony\Component\DependencyInjection\ContainerBuilder', array('findTaggedServiceIds'));
+        $container = $this->getMockBuilder('Symfony\Component\DependencyInjection\ContainerBuilder')->setMethods(array('findTaggedServiceIds'))->getMock();
 
-        $container->expects($this->any())
+        $container
+            ->expects($this->any())
             ->method('findTaggedServiceIds')
-            ->will($this->returnValue(array()));
+            ->will($this->returnValue(array()))
+        ;
 
         $propertyInfoPass = new PropertyInfoPass();
 

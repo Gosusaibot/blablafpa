@@ -16,10 +16,16 @@
         }
     ],
     "require": {
-        "php": ">=5.5.9"
+        "php": ">=5.3.3 EVEN ON LATEST SYMFONY VERSIONS TO ALLOW USING",
+        "php": "THIS BRIDGE WHEN TESTING LOWEST SYMFONY VERSIONS.",
+        "php": ">=5.3.3"
     },
     "suggest": {
-        "symfony/debug": "For tracking deprecated interfaces usages at runtime with DebugClassLoader"
+        "symfony/debug": "For tracking deprecated interfaces usages at runtime with DebugClassLoader",
+        "ext-zip": "Zip support is required when using bin/simple-phpunit"
+    },
+    "conflict": {
+        "phpunit/phpunit": ">=6.0"
     },
     "autoload": {
         "files": [ "bootstrap.php" ],
@@ -28,10 +34,13 @@
             "/Tests/"
         ]
     },
+    "bin": [
+        "bin/simple-phpunit"
+    ],
     "minimum-stability": "dev",
     "extra": {
         "branch-alias": {
-            "dev-master": "3.0-dev"
+            "dev-master": "3.2-dev"
         }
     }
 }

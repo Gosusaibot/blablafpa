@@ -433,7 +433,7 @@ class Advert extends \OC\PlatformBundle\Entity\Advert implements \Doctrine\ORM\P
     /**
      * {@inheritDoc}
      */
-    public function setUpdatedAt(\DateTime $updatedAt = NULL)
+    public function setUpdatedAt(\Datetime $updatedAt = NULL)
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUpdatedAt', [$updatedAt]);

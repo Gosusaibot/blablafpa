@@ -15,7 +15,6 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\CachedReader;
 use Doctrine\Common\Annotations\Reader;
 use Doctrine\Common\Cache\ArrayCache;
-use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 use Symfony\Component\Translation\IdentityTranslator;
 use Symfony\Component\Translation\TranslatorInterface;
 use Symfony\Component\Validator\Context\ExecutionContextFactory;
@@ -25,11 +24,10 @@ use Symfony\Component\Validator\Mapping\Factory\LazyLoadingMetadataFactory;
 use Symfony\Component\Validator\Mapping\Factory\MetadataFactoryInterface;
 use Symfony\Component\Validator\Mapping\Loader\AnnotationLoader;
 use Symfony\Component\Validator\Mapping\Loader\LoaderChain;
+use Symfony\Component\Validator\Mapping\Loader\LoaderInterface;
 use Symfony\Component\Validator\Mapping\Loader\StaticMethodLoader;
 use Symfony\Component\Validator\Mapping\Loader\XmlFileLoader;
-use Symfony\Component\Validator\Mapping\Loader\XmlFilesLoader;
 use Symfony\Component\Validator\Mapping\Loader\YamlFileLoader;
-use Symfony\Component\Validator\Mapping\Loader\YamlFilesLoader;
 use Symfony\Component\Validator\Validator\RecursiveValidator;
 
 /**
@@ -88,11 +86,6 @@ class ValidatorBuilder implements ValidatorBuilderInterface
      * @var null|string
      */
     private $translationDomain;
-
-    /**
-     * @var PropertyAccessorInterface|null
-     */
-    private $propertyAccessor;
 
     /**
      * {@inheritdoc}
@@ -263,10 +256,6 @@ class ValidatorBuilder implements ValidatorBuilderInterface
      */
     public function setConstraintValidatorFactory(ConstraintValidatorFactoryInterface $validatorFactory)
     {
-        if (null !== $this->propertyAccessor) {
-            throw new ValidatorException('You cannot set a validator factory after setting a custom property accessor. Remove the call to setPropertyAccessor() if you want to call setConstraintValidatorFactory().');
-        }
-
         $this->validatorFactory = $validatorFactory;
 
         return $this;
@@ -293,6 +282,32 @@ class ValidatorBuilder implements ValidatorBuilderInterface
     }
 
     /**
+     * @return LoaderInterface[]
+     */
+    public function getLoaders()
+    {
+        $loaders = array();
+
+        foreach ($this->xmlMappings as $xmlMapping) {
+            $loaders[] = new XmlFileLoader($xmlMapping);
+        }
+
+        foreach ($this->yamlMappings as $yamlMappings) {
+            $loaders[] = new YamlFileLoader($yamlMappings);
+        }
+
+        foreach ($this->methodMappings as $methodName) {
+            $loaders[] = new StaticMethodLoader($methodName);
+        }
+
+        if ($this->annotationReader) {
+            $loaders[] = new AnnotationLoader($this->annotationReader);
+        }
+
+        return $loaders;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function getValidator()
@@ -300,28 +315,7 @@ class ValidatorBuilder implements ValidatorBuilderInterface
         $metadataFactory = $this->metadataFactory;
 
         if (!$metadataFactory) {
-            $loaders = array();
-
-            if (count($this->xmlMappings) > 1) {
-                $loaders[] = new XmlFilesLoader($this->xmlMappings);
-            } elseif (1 === count($this->xmlMappings)) {
-                $loaders[] = new XmlFileLoader($this->xmlMappings[0]);
-            }
-
-            if (count($this->yamlMappings) > 1) {
-                $loaders[] = new YamlFilesLoader($this->yamlMappings);
-            } elseif (1 === count($this->yamlMappings)) {
-                $loaders[] = new YamlFileLoader($this->yamlMappings[0]);
-            }
-
-            foreach ($this->methodMappings as $methodName) {
-                $loaders[] = new StaticMethodLoader($methodName);
-            }
-
-            if ($this->annotationReader) {
-                $loaders[] = new AnnotationLoader($this->annotationReader);
-            }
-
+            $loaders = $this->getLoaders();
             $loader = null;
 
             if (count($loaders) > 1) {
@@ -333,7 +327,7 @@ class ValidatorBuilder implements ValidatorBuilderInterface
             $metadataFactory = new LazyLoadingMetadataFactory($loader, $this->metadataCache);
         }
 
-        $validatorFactory = $this->validatorFactory ?: new ConstraintValidatorFactory($this->propertyAccessor);
+        $validatorFactory = $this->validatorFactory ?: new ConstraintValidatorFactory();
         $translator = $this->translator;
 
         if (null === $translator) {

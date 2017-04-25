@@ -11,9 +11,10 @@
 
 namespace Symfony\Component\Form\Tests\Extension\Validator;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
 
-class ValidatorExtensionTest extends \PHPUnit_Framework_TestCase
+class ValidatorExtensionTest extends TestCase
 {
     public function test2Dot5ValidationApi()
     {
@@ -37,10 +38,6 @@ class ValidatorExtensionTest extends \PHPUnit_Framework_TestCase
         $metadata->expects($this->once())
             ->method('addPropertyConstraint')
             ->with('children', $this->isInstanceOf('Symfony\Component\Validator\Constraints\Valid'));
-
-        $validator
-            ->expects($this->never())
-            ->method('getMetadataFactory');
 
         $extension = new ValidatorExtension($validator);
         $guesser = $extension->loadTypeGuesser();
