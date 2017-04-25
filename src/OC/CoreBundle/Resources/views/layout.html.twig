@@ -10,69 +10,305 @@
 
     {% block stylesheets %}
       {# On charge le CSS de bootstrap depuis le site directement #}
-      <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       {% stylesheets filter="cssrewrite, ?scssphp"
         'bundles/ocplatform/css/main.css'
         'bundles/ocplatform/css/platform.css' %}
         <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
       {% endstylesheets %}
     {% endblock %}
+
+    {% javascripts 'bundles/ocplatform/js/*' %}
+
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
   </head>
 
   <body>
-  <div class="container">
-    <div id="header" class="jumbotron">
-      <h1>Ma plateforme d'annonces</h1>
-      <p>
-        Ce projet est propulsé par Symfony, et construit grâce au MOOC OpenClassrooms et SensioLabs.
-      </p>
-      <p>
-        <a class="btn btn-primary btn-lg" href="https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2">
-          Participer au MOOC »
-        </a>
-      </p>
-    </div>
 
-    <div class="row">
-      <div id="menu" class="col-md-3">
-        <h3>Les annonces</h3>
-        <ul class="nav nav-pills nav-stacked">
-          <li><a href="{{ path('oc_platform_home') }}">Accueil</a></li>
+
+  <nav class="navbar navbar-light navbar-toggleable-md static-top bg-faded" >
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"><img src="../image/logonav.png"> BlaBlafpa</a>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item"><a class="nav-link" href="{{ path('oc_platform_home') }}">Accueil</a></li>
           {% if is_granted('ROLE_AUTEUR') %}
-            <li><a href="{{ path('oc_platform_add') }}">Ajouter une annonce</a></li>
+          <li class="nav-item"><a class="nav-link" href="{{ path('oc_platform_add') }}">Ajouter une annonce</a></li>
           {% endif %}
+          {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+          <li class="nav-item">Bonjour {{ app.user.username }}</li>
+          <li class="nav-item"><a class="nav-link" href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a></li>
+          {% endif %}
+
         </ul>
-
-        <h4>Dernières annonces</h4>
-        {{ render(controller("OCPlatformBundle:Advert:menu", {'limit': 3})) }}
-
-        <h3>Utilisateur</h3>
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-          Connecté en tant que {{ app.user.username }}
-          <br>
-          <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-        {% else %}
-          <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-        {% endif %}
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
       </div>
-      <div id="content" class="col-md-9">
-        {% block body %}
-        {% endblock %}
+    </nav>
+
+
+
+
+
+ <!-- Carousel
+    ================================================== 
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="../image/covoiturage3.jpg" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>En voiture !!!</h1>
+              <div class="row">
+              <div class="col-lg-6">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for..." id="origin-input">
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search for..." id="destination-input">
+                  <span class="input-group-btn">
+                    <button class="btn btn-success" type="button">Go!</button>
+                  </span>
+                </div>
+              </div>
+            </div>
+                        </div>
+          </div>
+        </div>
+        
+      
+      </div>
+
+    </div>/.carousel -->
+
+
+
+
+
+
+
+    <input id="origin-input" class="controls" type="text"
+        placeholder="Lieu de départ">
+
+    <input id="destination-input" class="controls" type="text"
+        placeholder="Destination">
+
+    <div id="mode-selector" class="controls">
+
+<h6>En voiture !<h6>
+<div class="controls-none">
+
+      <input type="radio" name="type" id="changemode-walking">
+      <label for="changemode-walking">Walking</label>
+
+      <input type="radio" name="type" id="changemode-transit">
+      <label for="changemode-transit">Transit</label>
+
+      <input type="radio" name="type" id="changemode-driving" checked="checked">
+      <label for="changemode-driving">Driving</label>
       </div>
     </div>
 
-    <hr>
 
-    <footer>
-      <p>The sky's the limit © {{ 'now'|date('Y') }} and beyond.</p>
-    </footer>
-  </div>
+    <div id="map" class="jumbotron"></div>
+
+   <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      function initMap() {
+          var styledMapType = new google.maps.StyledMapType(
+            [
+            {
+            featureType: 'poi.business',
+            stylers: [{visibility: 'off'}]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'labels.icon',
+            stylers: [{visibility: 'off'}]
+          },
+                    {
+            elementType: 'labels.icon',
+            stylers: [{visibility: 'off'}]
+          }
+            ],
+            {name: 'Styled Map'});
+        var map = new google.maps.Map(document.getElementById('map'), {
+          mapTypeControl: false,
+          center: {lat: 48.5167, lng: -2.7833 },
+            gestureHandling: 'cooperative',
+            zoom: 9
+        });
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+        new AutocompleteDirectionsHandler(map);
+      }
+
+       /**
+        * @constructor
+       */
+      function AutocompleteDirectionsHandler(map) {
+        this.map = map;
+        this.originPlaceId = null;
+        this.destinationPlaceId = null;
+        this.travelMode = 'WALKING';
+        var originInput = document.getElementById('origin-input');
+        var destinationInput = document.getElementById('destination-input');
+        var modeSelector = document.getElementById('mode-selector');
+        this.directionsService = new google.maps.DirectionsService;
+        this.directionsDisplay = new google.maps.DirectionsRenderer;
+        this.directionsDisplay.setMap(map);
+
+        var originAutocomplete = new google.maps.places.Autocomplete(
+            originInput, {placeIdOnly: true});
+        var destinationAutocomplete = new google.maps.places.Autocomplete(
+            destinationInput, {placeIdOnly: true});
+
+        this.setupClickListener('changemode-walking', 'WALKING');
+        this.setupClickListener('changemode-transit', 'TRANSIT');
+        this.setupClickListener('changemode-driving', 'DRIVING');
+
+        this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+        this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+      }
+
+      // Sets a listener on a radio button to change the filter type on Places
+      // Autocomplete.
+      AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
+        var radioButton = document.getElementById(id);
+        var me = this;
+        radioButton.addEventListener('click', function() {
+          me.travelMode = mode;
+          me.route();
+        });
+      };
+
+      AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+        var me = this;
+        autocomplete.bindTo('bounds', this.map);
+        autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          if (!place.place_id) {
+            window.alert("Please select an option from the dropdown list.");
+            return;
+          }
+          if (mode === 'ORIG') {
+            me.originPlaceId = place.place_id;
+          } else {
+            me.destinationPlaceId = place.place_id;
+          }
+          me.route();
+        });
+
+      };
+
+      AutocompleteDirectionsHandler.prototype.route = function() {
+        if (!this.originPlaceId || !this.destinationPlaceId) {
+          return;
+        }
+        var me = this;
+
+        this.directionsService.route({
+          origin: {'placeId': this.originPlaceId},
+          destination: {'placeId': this.destinationPlaceId},
+          travelMode: this.travelMode
+        }, function(response, status) {
+          if (status === 'OK') {
+            me.directionsDisplay.setDirections(response);
+          } else {
+            window.alert('Directions request failed due to ' + status);
+          }
+        });
+      };
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuLtOpElBBWt36WirTuruMgt1s0clbFcQ&libraries=places&callback=initMap"
+        async defer></script>
+
+    <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container">
+
+
+          {% block body %}
+          {% endblock %}
+  
+
+      </div>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+
+    
+
+
+  <!-- Marketing messaging and featurettes
+    ================================================== -->
+    <!-- Wrap the rest of the page in another container to center all the content. -->
+
+    <div class="container marketing album text-muted">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="http://www.cergypontoise.fr/upload/docs/image/jpeg/2012-08/00732_p0_9998863.jpg" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7 push-md-5">
+            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          </div>
+          <div class="col-md-5 pull-md-7">
+            <img class="featurette-image img-fluid mx-auto" src="https://images.caradisiac.com/logos/5/9/5/3/185953/S7-Le-covoiturage-favoriserait-les-bons-comportements-sur-la-route-102191.jpg" alt="Generic placeholder image">
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div><!-- /.container -->
+
+<div class="container">
+      <footer>
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2017 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+      </footer>
+
+      </div>
 
   {% block javascripts %}
     {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js"></script>
   {% endblock %}
 
   </body>
