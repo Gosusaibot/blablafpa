@@ -38,7 +38,7 @@ Publiez les assets dans le répertoire web :
 
     php bin/console assets:install web
 
-<<<<<<< HEAD TESSSSTT
+<<<<<<< HEAD TESSSSTT blblabalbalalalababalabl
 ## Et profitez ! Merci beaucoup +++++
 =======
 ## Et profitez ! Merci beaucoup perle
