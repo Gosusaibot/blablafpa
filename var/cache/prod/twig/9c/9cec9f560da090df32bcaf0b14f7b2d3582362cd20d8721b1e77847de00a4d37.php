@@ -1,6 +1,6 @@
 <?php
 
-/* @Twig/Exception/error404.html.twig */
+/* TwigBundle:Exception:error404.html.twig */
 class __TwigTemplate_634b477fc47dc036156da782afff1c99bb9324750b851a2674eaeaac60c93824 extends Twig_Template
 {
     public function __construct(Twig_Environment $env)
@@ -45,7 +45,7 @@ class __TwigTemplate_634b477fc47dc036156da782afff1c99bb9324750b851a2674eaeaac60c
 
     public function getTemplateName()
     {
-        return "@Twig/Exception/error404.html.twig";
+        return "TwigBundle:Exception:error404.html.twig";
     }
 
     public function isTraitable()
@@ -60,6 +60,6 @@ class __TwigTemplate_634b477fc47dc036156da782afff1c99bb9324750b851a2674eaeaac60c
 
     public function getSourceContext()
     {
-        return new Twig_Source("", "@Twig/Exception/error404.html.twig", "/var/www/blablafpa/app/Resources/TwigBundle/views/Exception/error404.html.twig");
+        return new Twig_Source("", "TwigBundle:Exception:error404.html.twig", "/var/www/blablafpa/app/Resources/TwigBundle/views/Exception/error404.html.twig");
     }
 }

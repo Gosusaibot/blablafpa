@@ -82,6 +82,11 @@ class appProdProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBundle\R
             return array (  '_controller' => 'OC\\CoreBundle\\Controller\\CoreController::contactAction',  '_route' => 'oc_core_contact',);
         }
 
+        // oc_core_register
+        if ($pathinfo === '/register') {
+            return array('_route' => 'oc_core_register');
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
                 // fos_user_security_login

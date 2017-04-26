@@ -49,15 +49,14 @@
           <li class="nav-item"><a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a></li>
           {% endif %}
           <br>
-          <li class="nav-item"><a class="nav-link" href="{{ path('oc_core_register') }}">Inscription</a>
+          <li class="nav-item pull-right"><a class="nav-link" href="{{ path('oc_core_register') }}">Inscription</a></li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"></button>
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
         </form>
       </div>
     </nav>
-
 
 
 
@@ -73,30 +72,27 @@
             <div class="carousel-caption">
               <h1>En voiture !!!</h1>
               <div class="row">
-              <div class="col-lg-6">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search for..." id="origin-input">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." id="origin-input">
+                  </div>
                 </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search for..." id="destination-input">
-                  <span class="input-group-btn">
-                    <button class="btn btn-success" type="button">Go!</button>
-                  </span>
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for..." id="destination-input">
+                    <span class="input-group-btn">
+                      <button class="btn btn-success" type="button">Go!</button>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-                        </div>
           </div>
         </div>
         
-      
       </div>
 
-    </div>/.carousel -->
-
-
+    </div> carousel -->
 
 
 
@@ -109,22 +105,18 @@
         placeholder="Destination">
 
     <div id="mode-selector" class="controls">
+      <h6>En voiture !</h6>
+      <div class="controls-none">
+        <input type="radio" name="type" id="changemode-walking">
+        <label for="changemode-walking">Walking</label>
 
-<h6>En voiture !<h6>
-<div class="controls-none">
+        <input type="radio" name="type" id="changemode-transit">
+        <label for="changemode-transit">Transit</label>
 
-      <input type="radio" name="type" id="changemode-walking">
-      <label for="changemode-walking">Walking</label>
-
-      <input type="radio" name="type" id="changemode-transit">
-      <label for="changemode-transit">Transit</label>
-
-      <input type="radio" name="type" id="changemode-driving" checked="checked">
-      <label for="changemode-driving">Driving</label>
+        <input type="radio" name="type" id="changemode-driving" checked="checked">
+        <label for="changemode-driving">Driving</label>
       </div>
     </div>
-
-
     <div id="map" class="jumbotron"></div>
 
    <script>
@@ -274,7 +266,7 @@
         <div class="row featurette">
           <div class="col-md-7">
             <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class="lead">Meet our BlaBlaStar, Diana! A BlaBlaStar is a member of the community who has caught our eye because of their exciting job, their interesting hobbies or for just being generally awesome. Diana is a Psychology Lecturer at Portsmouth University and she regularly uses BlaBlaCar as a passenger. Well first of all, it’s an incredibly inexpensive way to […].</p>
           </div>
           <div class="col-md-5">
             <img class="featurette-image img-fluid mx-auto" src="http://www.cergypontoise.fr/upload/docs/image/jpeg/2012-08/00732_p0_9998863.jpg" alt="Generic placeholder image">
@@ -286,7 +278,7 @@
         <div class="row featurette">
           <div class="col-md-7 push-md-5">
             <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class="lead">By using BlaBlaCar as your cheap and comfy travel option, you can save your money for when it really counts. So what are you waiting for? Take that much needed break for two and check out our pick of the UK’s top three Valentine’s getaway destinations!</p>
           </div>
           <div class="col-md-5 pull-md-7">
             <img class="featurette-image img-fluid mx-auto" src="https://images.caradisiac.com/logos/5/9/5/3/185953/S7-Le-covoiturage-favoriserait-les-bons-comportements-sur-la-route-102191.jpg" alt="Generic placeholder image">

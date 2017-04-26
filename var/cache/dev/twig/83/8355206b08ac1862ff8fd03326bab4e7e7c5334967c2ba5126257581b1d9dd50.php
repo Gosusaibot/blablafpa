@@ -19,11 +19,11 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6eeb638efd84fc5df23906d6c61dd95945ade74f194de08bcf90f02a84cda674 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_6eeb638efd84fc5df23906d6c61dd95945ade74f194de08bcf90f02a84cda674->enter($__internal_6eeb638efd84fc5df23906d6c61dd95945ade74f194de08bcf90f02a84cda674_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCCoreBundle::layout.html.twig"));
+        $__internal_039291a0bb74c29ab89315b56260c815ffd0ab6fc9500f145d0c48a602a640e3 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_039291a0bb74c29ab89315b56260c815ffd0ab6fc9500f145d0c48a602a640e3->enter($__internal_039291a0bb74c29ab89315b56260c815ffd0ab6fc9500f145d0c48a602a640e3_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCCoreBundle::layout.html.twig"));
 
-        $__internal_2b0c960161062c7db38d66e22e0ef9d7654924e377890081e7bf4fa66a3b8d56 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_2b0c960161062c7db38d66e22e0ef9d7654924e377890081e7bf4fa66a3b8d56->enter($__internal_2b0c960161062c7db38d66e22e0ef9d7654924e377890081e7bf4fa66a3b8d56_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCCoreBundle::layout.html.twig"));
+        $__internal_0295120c86be378c5ba76adee63eaee92b7507fc7513067a6b3133008e088265 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_0295120c86be378c5ba76adee63eaee92b7507fc7513067a6b3133008e088265->enter($__internal_0295120c86be378c5ba76adee63eaee92b7507fc7513067a6b3133008e088265_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCCoreBundle::layout.html.twig"));
 
         // line 2
         echo "
@@ -115,18 +115,17 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
         }
         // line 51
         echo "          <br>
-          <li class=\"nav-item\"><a class=\"nav-link\" href=\"";
+          <li class=\"nav-item pull-right\"><a class=\"nav-link\" href=\"";
         // line 52
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("oc_core_register");
-        echo "\">Inscription</a>
+        echo "\">Inscription</a></li>
         </ul>
         <form class=\"form-inline mt-2 mt-md-0\">
           <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">
-          <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\"></button>
+          <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">search</button>
         </form>
       </div>
     </nav>
-
 
 
 
@@ -142,30 +141,27 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
             <div class=\"carousel-caption\">
               <h1>En voiture !!!</h1>
               <div class=\"row\">
-              <div class=\"col-lg-6\">
-                <div class=\"input-group\">
-                  <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" id=\"origin-input\">
+                <div class=\"col-lg-6\">
+                  <div class=\"input-group\">
+                    <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" id=\"origin-input\">
+                  </div>
                 </div>
-              </div>
-              <div class=\"col-lg-6\">
-                <div class=\"input-group\">
-                  <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" id=\"destination-input\">
-                  <span class=\"input-group-btn\">
-                    <button class=\"btn btn-success\" type=\"button\">Go!</button>
-                  </span>
+                <div class=\"col-lg-6\">
+                  <div class=\"input-group\">
+                    <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" id=\"destination-input\">
+                    <span class=\"input-group-btn\">
+                      <button class=\"btn btn-success\" type=\"button\">Go!</button>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-                        </div>
           </div>
         </div>
         
-      
       </div>
 
-    </div>/.carousel -->
-
-
+    </div> carousel -->
 
 
 
@@ -178,22 +174,18 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
         placeholder=\"Destination\">
 
     <div id=\"mode-selector\" class=\"controls\">
+      <h6>En voiture !</h6>
+      <div class=\"controls-none\">
+        <input type=\"radio\" name=\"type\" id=\"changemode-walking\">
+        <label for=\"changemode-walking\">Walking</label>
 
-<h6>En voiture !<h6>
-<div class=\"controls-none\">
+        <input type=\"radio\" name=\"type\" id=\"changemode-transit\">
+        <label for=\"changemode-transit\">Transit</label>
 
-      <input type=\"radio\" name=\"type\" id=\"changemode-walking\">
-      <label for=\"changemode-walking\">Walking</label>
-
-      <input type=\"radio\" name=\"type\" id=\"changemode-transit\">
-      <label for=\"changemode-transit\">Transit</label>
-
-      <input type=\"radio\" name=\"type\" id=\"changemode-driving\" checked=\"checked\">
-      <label for=\"changemode-driving\">Driving</label>
+        <input type=\"radio\" name=\"type\" id=\"changemode-driving\" checked=\"checked\">
+        <label for=\"changemode-driving\">Driving</label>
       </div>
     </div>
-
-
     <div id=\"map\" class=\"jumbotron\"></div>
 
    <script>
@@ -324,9 +316,9 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
 
 
           ";
-        // line 257
+        // line 249
         $this->displayBlock('body', $context, $blocks);
-        // line 259
+        // line 251
         echo "  
 
       </div>
@@ -345,7 +337,7 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
         <div class=\"row featurette\">
           <div class=\"col-md-7\">
             <h2 class=\"featurette-heading\">First featurette heading. <span class=\"text-muted\">It'll blow your mind.</span></h2>
-            <p class=\"lead\">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class=\"lead\">Meet our BlaBlaStar, Diana! A BlaBlaStar is a member of the community who has caught our eye because of their exciting job, their interesting hobbies or for just being generally awesome. Diana is a Psychology Lecturer at Portsmouth University and she regularly uses BlaBlaCar as a passenger. Well first of all, it’s an incredibly inexpensive way to […].</p>
           </div>
           <div class=\"col-md-5\">
             <img class=\"featurette-image img-fluid mx-auto\" src=\"http://www.cergypontoise.fr/upload/docs/image/jpeg/2012-08/00732_p0_9998863.jpg\" alt=\"Generic placeholder image\">
@@ -357,7 +349,7 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
         <div class=\"row featurette\">
           <div class=\"col-md-7 push-md-5\">
             <h2 class=\"featurette-heading\">Oh yeah, it's that good. <span class=\"text-muted\">See for yourself.</span></h2>
-            <p class=\"lead\">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class=\"lead\">By using BlaBlaCar as your cheap and comfy travel option, you can save your money for when it really counts. So what are you waiting for? Take that much needed break for two and check out our pick of the UK’s top three Valentine’s getaway destinations!</p>
           </div>
           <div class=\"col-md-5 pull-md-7\">
             <img class=\"featurette-image img-fluid mx-auto\" src=\"https://images.caradisiac.com/logos/5/9/5/3/185953/S7-Le-covoiturage-favoriserait-les-bons-comportements-sur-la-route-102191.jpg\" alt=\"Generic placeholder image\">
@@ -378,47 +370,47 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
       </div>
 
   ";
-        // line 309
+        // line 301
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 314
+        // line 306
         echo "
   </body>
 </html>
 ";
         
-        $__internal_6eeb638efd84fc5df23906d6c61dd95945ade74f194de08bcf90f02a84cda674->leave($__internal_6eeb638efd84fc5df23906d6c61dd95945ade74f194de08bcf90f02a84cda674_prof);
+        $__internal_039291a0bb74c29ab89315b56260c815ffd0ab6fc9500f145d0c48a602a640e3->leave($__internal_039291a0bb74c29ab89315b56260c815ffd0ab6fc9500f145d0c48a602a640e3_prof);
 
         
-        $__internal_2b0c960161062c7db38d66e22e0ef9d7654924e377890081e7bf4fa66a3b8d56->leave($__internal_2b0c960161062c7db38d66e22e0ef9d7654924e377890081e7bf4fa66a3b8d56_prof);
+        $__internal_0295120c86be378c5ba76adee63eaee92b7507fc7513067a6b3133008e088265->leave($__internal_0295120c86be378c5ba76adee63eaee92b7507fc7513067a6b3133008e088265_prof);
 
     }
 
     // line 9
     public function block_title($context, array $blocks = array())
     {
-        $__internal_0737ca8f652cc67449143daa23a081691aaf4d627940252fb202f81c5e60a747 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_0737ca8f652cc67449143daa23a081691aaf4d627940252fb202f81c5e60a747->enter($__internal_0737ca8f652cc67449143daa23a081691aaf4d627940252fb202f81c5e60a747_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_e19e2e71518151b04cebb4477e0fedb434cdb6b89b9d22b3e7443493b36f3cd9 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e19e2e71518151b04cebb4477e0fedb434cdb6b89b9d22b3e7443493b36f3cd9->enter($__internal_e19e2e71518151b04cebb4477e0fedb434cdb6b89b9d22b3e7443493b36f3cd9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_f60e3dfeb06d09b4cc8e8b57bd4ca31b7b434fc74e944865e413fc3334af597b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f60e3dfeb06d09b4cc8e8b57bd4ca31b7b434fc74e944865e413fc3334af597b->enter($__internal_f60e3dfeb06d09b4cc8e8b57bd4ca31b7b434fc74e944865e413fc3334af597b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_f45e3f8d7d4256a256deaa010b40e849100695381be193b7628ab5120a1a3079 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f45e3f8d7d4256a256deaa010b40e849100695381be193b7628ab5120a1a3079->enter($__internal_f45e3f8d7d4256a256deaa010b40e849100695381be193b7628ab5120a1a3079_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "OC Plateforme";
         
-        $__internal_f60e3dfeb06d09b4cc8e8b57bd4ca31b7b434fc74e944865e413fc3334af597b->leave($__internal_f60e3dfeb06d09b4cc8e8b57bd4ca31b7b434fc74e944865e413fc3334af597b_prof);
+        $__internal_f45e3f8d7d4256a256deaa010b40e849100695381be193b7628ab5120a1a3079->leave($__internal_f45e3f8d7d4256a256deaa010b40e849100695381be193b7628ab5120a1a3079_prof);
 
         
-        $__internal_0737ca8f652cc67449143daa23a081691aaf4d627940252fb202f81c5e60a747->leave($__internal_0737ca8f652cc67449143daa23a081691aaf4d627940252fb202f81c5e60a747_prof);
+        $__internal_e19e2e71518151b04cebb4477e0fedb434cdb6b89b9d22b3e7443493b36f3cd9->leave($__internal_e19e2e71518151b04cebb4477e0fedb434cdb6b89b9d22b3e7443493b36f3cd9_prof);
 
     }
 
     // line 11
     public function block_stylesheets($context, array $blocks = array())
     {
-        $__internal_9a4566de6a77d4583abc0156249a33769c6a5fc3ad515554acaca7d2dda81d5a = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9a4566de6a77d4583abc0156249a33769c6a5fc3ad515554acaca7d2dda81d5a->enter($__internal_9a4566de6a77d4583abc0156249a33769c6a5fc3ad515554acaca7d2dda81d5a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_d9f6541eb728aeec095d456ae320e954561b592dd2fba4650edf9bfd441ced78 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_d9f6541eb728aeec095d456ae320e954561b592dd2fba4650edf9bfd441ced78->enter($__internal_d9f6541eb728aeec095d456ae320e954561b592dd2fba4650edf9bfd441ced78_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        $__internal_74ee9b5fc1a4ec3533d66e09d2bcf1958ee7b016d36e28f5ed4c975002140c6e = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_74ee9b5fc1a4ec3533d66e09d2bcf1958ee7b016d36e28f5ed4c975002140c6e->enter($__internal_74ee9b5fc1a4ec3533d66e09d2bcf1958ee7b016d36e28f5ed4c975002140c6e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+        $__internal_9659af476d0b25158e1cd31dfc854d09c51c822c6f56e139374d360546af7bc4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_9659af476d0b25158e1cd31dfc854d09c51c822c6f56e139374d360546af7bc4->enter($__internal_9659af476d0b25158e1cd31dfc854d09c51c822c6f56e139374d360546af7bc4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 12
         echo "      ";
@@ -455,52 +447,52 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
         // line 22
         echo "    ";
         
-        $__internal_74ee9b5fc1a4ec3533d66e09d2bcf1958ee7b016d36e28f5ed4c975002140c6e->leave($__internal_74ee9b5fc1a4ec3533d66e09d2bcf1958ee7b016d36e28f5ed4c975002140c6e_prof);
+        $__internal_9659af476d0b25158e1cd31dfc854d09c51c822c6f56e139374d360546af7bc4->leave($__internal_9659af476d0b25158e1cd31dfc854d09c51c822c6f56e139374d360546af7bc4_prof);
 
         
-        $__internal_9a4566de6a77d4583abc0156249a33769c6a5fc3ad515554acaca7d2dda81d5a->leave($__internal_9a4566de6a77d4583abc0156249a33769c6a5fc3ad515554acaca7d2dda81d5a_prof);
+        $__internal_d9f6541eb728aeec095d456ae320e954561b592dd2fba4650edf9bfd441ced78->leave($__internal_d9f6541eb728aeec095d456ae320e954561b592dd2fba4650edf9bfd441ced78_prof);
 
     }
 
-    // line 257
+    // line 249
     public function block_body($context, array $blocks = array())
     {
-        $__internal_d2a4c81de5d27569b10c41daf35774e0ec4b68ae878ac7efabb8827bd9b84212 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_d2a4c81de5d27569b10c41daf35774e0ec4b68ae878ac7efabb8827bd9b84212->enter($__internal_d2a4c81de5d27569b10c41daf35774e0ec4b68ae878ac7efabb8827bd9b84212_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_e06626654ec834a06b03883038dcdb322809d47880a75ed29aa45e8b9bfbca97 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e06626654ec834a06b03883038dcdb322809d47880a75ed29aa45e8b9bfbca97->enter($__internal_e06626654ec834a06b03883038dcdb322809d47880a75ed29aa45e8b9bfbca97_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        $__internal_9b5da55ece7638ed78e250c1efde61e9924ac88f8d6ecc746a477ee7a342e4c6 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_9b5da55ece7638ed78e250c1efde61e9924ac88f8d6ecc746a477ee7a342e4c6->enter($__internal_9b5da55ece7638ed78e250c1efde61e9924ac88f8d6ecc746a477ee7a342e4c6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_a17252fb9727e39cfc07f8c23b3a1de4bfa12868b3244a93073c1a8b99b13cc5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a17252fb9727e39cfc07f8c23b3a1de4bfa12868b3244a93073c1a8b99b13cc5->enter($__internal_a17252fb9727e39cfc07f8c23b3a1de4bfa12868b3244a93073c1a8b99b13cc5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
-        // line 258
+        // line 250
         echo "          ";
         
-        $__internal_9b5da55ece7638ed78e250c1efde61e9924ac88f8d6ecc746a477ee7a342e4c6->leave($__internal_9b5da55ece7638ed78e250c1efde61e9924ac88f8d6ecc746a477ee7a342e4c6_prof);
+        $__internal_a17252fb9727e39cfc07f8c23b3a1de4bfa12868b3244a93073c1a8b99b13cc5->leave($__internal_a17252fb9727e39cfc07f8c23b3a1de4bfa12868b3244a93073c1a8b99b13cc5_prof);
 
         
-        $__internal_d2a4c81de5d27569b10c41daf35774e0ec4b68ae878ac7efabb8827bd9b84212->leave($__internal_d2a4c81de5d27569b10c41daf35774e0ec4b68ae878ac7efabb8827bd9b84212_prof);
+        $__internal_e06626654ec834a06b03883038dcdb322809d47880a75ed29aa45e8b9bfbca97->leave($__internal_e06626654ec834a06b03883038dcdb322809d47880a75ed29aa45e8b9bfbca97_prof);
 
     }
 
-    // line 309
+    // line 301
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_b5e877cc12e78b2d2fe1fc1c9e98860972cb96fc80c9a2a0f9a880b7a5cca94d = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_b5e877cc12e78b2d2fe1fc1c9e98860972cb96fc80c9a2a0f9a880b7a5cca94d->enter($__internal_b5e877cc12e78b2d2fe1fc1c9e98860972cb96fc80c9a2a0f9a880b7a5cca94d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_8639467f0b7d0af4293c2654054a15a5d4faa25fe7231b499651029c91bc20e1 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_8639467f0b7d0af4293c2654054a15a5d4faa25fe7231b499651029c91bc20e1->enter($__internal_8639467f0b7d0af4293c2654054a15a5d4faa25fe7231b499651029c91bc20e1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        $__internal_b45b8ade594188c0e9d679da4258346edb9eab96bc4cdacf9ba323d14082e457 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_b45b8ade594188c0e9d679da4258346edb9eab96bc4cdacf9ba323d14082e457->enter($__internal_b45b8ade594188c0e9d679da4258346edb9eab96bc4cdacf9ba323d14082e457_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_3aa2e4bf07d5f87c15f4fd55e609e77844d3355e19b9a0df382f0658cb0a41ca = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3aa2e4bf07d5f87c15f4fd55e609e77844d3355e19b9a0df382f0658cb0a41ca->enter($__internal_3aa2e4bf07d5f87c15f4fd55e609e77844d3355e19b9a0df382f0658cb0a41ca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 310
+        // line 302
         echo "    ";
-        // line 311
+        // line 303
         echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
     <script src=\"https://v4-alpha.getbootstrap.com/dist/js/bootstrap.min.js\"></script>
   ";
         
-        $__internal_b45b8ade594188c0e9d679da4258346edb9eab96bc4cdacf9ba323d14082e457->leave($__internal_b45b8ade594188c0e9d679da4258346edb9eab96bc4cdacf9ba323d14082e457_prof);
+        $__internal_3aa2e4bf07d5f87c15f4fd55e609e77844d3355e19b9a0df382f0658cb0a41ca->leave($__internal_3aa2e4bf07d5f87c15f4fd55e609e77844d3355e19b9a0df382f0658cb0a41ca_prof);
 
         
-        $__internal_b5e877cc12e78b2d2fe1fc1c9e98860972cb96fc80c9a2a0f9a880b7a5cca94d->leave($__internal_b5e877cc12e78b2d2fe1fc1c9e98860972cb96fc80c9a2a0f9a880b7a5cca94d_prof);
+        $__internal_8639467f0b7d0af4293c2654054a15a5d4faa25fe7231b499651029c91bc20e1->leave($__internal_8639467f0b7d0af4293c2654054a15a5d4faa25fe7231b499651029c91bc20e1_prof);
 
     }
 
@@ -516,7 +508,7 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
 
     public function getDebugInfo()
     {
-        return array (  496 => 311,  494 => 310,  485 => 309,  475 => 258,  466 => 257,  456 => 22,  436 => 20,  432 => 17,  426 => 13,  424 => 12,  415 => 11,  397 => 9,  384 => 314,  382 => 309,  330 => 259,  328 => 257,  120 => 52,  117 => 51,  111 => 49,  106 => 47,  101 => 46,  98 => 45,  92 => 43,  90 => 42,  86 => 41,  71 => 28,  65 => 26,  62 => 25,  55 => 26,  52 => 25,  48 => 24,  45 => 23,  43 => 11,  38 => 9,  29 => 2,);
+        return array (  488 => 303,  486 => 302,  477 => 301,  467 => 250,  458 => 249,  448 => 22,  428 => 20,  424 => 17,  418 => 13,  416 => 12,  407 => 11,  389 => 9,  376 => 306,  374 => 301,  322 => 251,  320 => 249,  120 => 52,  117 => 51,  111 => 49,  106 => 47,  101 => 46,  98 => 45,  92 => 43,  90 => 42,  86 => 41,  71 => 28,  65 => 26,  62 => 25,  55 => 26,  52 => 25,  48 => 24,  45 => 23,  43 => 11,  38 => 9,  29 => 2,);
     }
 
     public function getSourceContext()
@@ -572,15 +564,14 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
           <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('fos_user_security_login') }}\">Connexion</a></li>
           {% endif %}
           <br>
-          <li class=\"nav-item\"><a class=\"nav-link\" href=\"{{ path('oc_core_register') }}\">Inscription</a>
+          <li class=\"nav-item pull-right\"><a class=\"nav-link\" href=\"{{ path('oc_core_register') }}\">Inscription</a></li>
         </ul>
         <form class=\"form-inline mt-2 mt-md-0\">
           <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\">
-          <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\"></button>
+          <button class=\"btn btn-outline-success my-2 my-sm-0\" type=\"submit\">search</button>
         </form>
       </div>
     </nav>
-
 
 
 
@@ -596,30 +587,27 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
             <div class=\"carousel-caption\">
               <h1>En voiture !!!</h1>
               <div class=\"row\">
-              <div class=\"col-lg-6\">
-                <div class=\"input-group\">
-                  <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" id=\"origin-input\">
+                <div class=\"col-lg-6\">
+                  <div class=\"input-group\">
+                    <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" id=\"origin-input\">
+                  </div>
                 </div>
-              </div>
-              <div class=\"col-lg-6\">
-                <div class=\"input-group\">
-                  <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" id=\"destination-input\">
-                  <span class=\"input-group-btn\">
-                    <button class=\"btn btn-success\" type=\"button\">Go!</button>
-                  </span>
+                <div class=\"col-lg-6\">
+                  <div class=\"input-group\">
+                    <input type=\"text\" class=\"form-control\" placeholder=\"Search for...\" id=\"destination-input\">
+                    <span class=\"input-group-btn\">
+                      <button class=\"btn btn-success\" type=\"button\">Go!</button>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-                        </div>
           </div>
         </div>
         
-      
       </div>
 
-    </div>/.carousel -->
-
-
+    </div> carousel -->
 
 
 
@@ -632,22 +620,18 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
         placeholder=\"Destination\">
 
     <div id=\"mode-selector\" class=\"controls\">
+      <h6>En voiture !</h6>
+      <div class=\"controls-none\">
+        <input type=\"radio\" name=\"type\" id=\"changemode-walking\">
+        <label for=\"changemode-walking\">Walking</label>
 
-<h6>En voiture !<h6>
-<div class=\"controls-none\">
+        <input type=\"radio\" name=\"type\" id=\"changemode-transit\">
+        <label for=\"changemode-transit\">Transit</label>
 
-      <input type=\"radio\" name=\"type\" id=\"changemode-walking\">
-      <label for=\"changemode-walking\">Walking</label>
-
-      <input type=\"radio\" name=\"type\" id=\"changemode-transit\">
-      <label for=\"changemode-transit\">Transit</label>
-
-      <input type=\"radio\" name=\"type\" id=\"changemode-driving\" checked=\"checked\">
-      <label for=\"changemode-driving\">Driving</label>
+        <input type=\"radio\" name=\"type\" id=\"changemode-driving\" checked=\"checked\">
+        <label for=\"changemode-driving\">Driving</label>
       </div>
     </div>
-
-
     <div id=\"map\" class=\"jumbotron\"></div>
 
    <script>
@@ -797,7 +781,7 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
         <div class=\"row featurette\">
           <div class=\"col-md-7\">
             <h2 class=\"featurette-heading\">First featurette heading. <span class=\"text-muted\">It'll blow your mind.</span></h2>
-            <p class=\"lead\">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class=\"lead\">Meet our BlaBlaStar, Diana! A BlaBlaStar is a member of the community who has caught our eye because of their exciting job, their interesting hobbies or for just being generally awesome. Diana is a Psychology Lecturer at Portsmouth University and she regularly uses BlaBlaCar as a passenger. Well first of all, it’s an incredibly inexpensive way to […].</p>
           </div>
           <div class=\"col-md-5\">
             <img class=\"featurette-image img-fluid mx-auto\" src=\"http://www.cergypontoise.fr/upload/docs/image/jpeg/2012-08/00732_p0_9998863.jpg\" alt=\"Generic placeholder image\">
@@ -809,7 +793,7 @@ class __TwigTemplate_0b7516b5d98f0ffa7145388c53688a578fe17e0e9adb30ad9051ec2eddd
         <div class=\"row featurette\">
           <div class=\"col-md-7 push-md-5\">
             <h2 class=\"featurette-heading\">Oh yeah, it's that good. <span class=\"text-muted\">See for yourself.</span></h2>
-            <p class=\"lead\">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <p class=\"lead\">By using BlaBlaCar as your cheap and comfy travel option, you can save your money for when it really counts. So what are you waiting for? Take that much needed break for two and check out our pick of the UK’s top three Valentine’s getaway destinations!</p>
           </div>
           <div class=\"col-md-5 pull-md-7\">
             <img class=\"featurette-image img-fluid mx-auto\" src=\"https://images.caradisiac.com/logos/5/9/5/3/185953/S7-Le-covoiturage-favoriserait-les-bons-comportements-sur-la-route-102191.jpg\" alt=\"Generic placeholder image\">
