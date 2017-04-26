@@ -2,11 +2,12 @@
 
 oc_platform:
     resource: "@OCPlatformBundle/Resources/config/routing.yml"
-    prefix:   /platform
+    prefix:   /
 
 # On inclut également les routes de notre CoreBundle, sans préfixe
 oc_core:
     resource: "@OCCoreBundle/Resources/config/routing.yml"
+    prefix: /
 
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"

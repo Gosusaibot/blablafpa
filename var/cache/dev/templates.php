@@ -161,5 +161,4 @@
   'CoreSphereConsoleBundle:Console:terminal.html.twig' => __DIR__.'/../../../vendor/coresphere/console-bundle/Resources/views/Console/terminal.html.twig',
   'CoreSphereConsoleBundle:Toolbar:toolbar.html.twig' => __DIR__.'/../../../vendor/coresphere/console-bundle/Resources/views/Toolbar/toolbar.html.twig',
   '::base.html.twig' => __DIR__.'/../../../app/Resources/views/base.html.twig',
-  ':default:index.html.twig' => __DIR__.'/../../../app/Resources/views/default/index.html.twig',
 );
