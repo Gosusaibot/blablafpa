@@ -16,38 +16,62 @@
   {# Génération manuelle et éclatée : #}
   <div class="form-group">
     {# Génération du label. #}
-    {{ form_label(form.title, "Titre de l'annonce", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-
-    {# Affichage des erreurs pour ce champ précis. #}
+    {{ form_label(form.title, "lieu de départ", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
     {{ form_errors(form.title) }}
-
-    <div class="col-sm-10">
+      <div class="col-sm-4">
       {# Génération de l'input. #}
       {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    {{ form_label(form.title2, "lieu d'arrivée", {'label_attr': {'class': 'col-sm-4 control-label'}}) }}
+    {{ form_errors(form.title2) }}
+    <div class="col-sm-4">
+      {# Génération de l'input. #}
+      {{ form_widget(form.title2, {'attr': {'class': 'form-control'}}) }}
     </div>
   </div>
 
   {# Idem pour un autre champ. #}
   <div class="form-group">
-    {{ form_label(form.content, "Contenu de l'annonce", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-    {{ form_errors(form.content) }}
-    <div class="col-sm-10">
-      {{ form_widget(form.content) }}
+    {{ form_label(form.content, "Commentaire", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.title) }}
+    <div class="col-sm-8">
+      {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
     </div>
   </div>
 
-  {{ form_row(form.author) }}
+  <div class="form-group">
+    {{ form_label(form.author, "auteur", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.title) }}
+    <div class="col-sm-2">
+      {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    {{ form_label(form.nbplace, "Nombre de place", {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+    {{ form_errors(form.title) }}
+    <div class="col-sm-1">
+      {{ form_widget(form.nbplace, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    {{ form_label(form.categories, "Spécificités", {'label_attr': {'class': 'col-sm-5 control-label'}}) }}
+    {{ form_errors(form.title) }}
+    <div class="col-sm-2">
+      {{ form_widget(form.categories, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+
+  </div>
+
+    <div class="form-group">
+      <div class="col-sm-10">
 
   {% if form.published is defined %}
     {{ form_row(form.published) }}
   {% endif %}
-
+    
   {{ form_row(form.image) }}
 
-  {{ form_row(form.categories) }}
-
   {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
-  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+  {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary pull-right'}}) }}
 
   {# Génération automatique des champs pas encore écrits.
      Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
@@ -56,6 +80,8 @@
 
   {# Fermeture de la balise <form> du formulaire HTML #}
   {{ form_end(form) }}
+</div>
+</div>
 </div>
 
 {# On charge la bibliothèque jQuery. Ici, je la prends depuis le CDN google

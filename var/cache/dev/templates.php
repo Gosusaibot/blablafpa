@@ -117,7 +117,6 @@
   'OCPlatformBundle:Advert:form.html.twig' => __DIR__.'/../../../src/OC/PlatformBundle/Resources/views/Advert/form.html.twig',
   'OCPlatformBundle:Advert:delete.html.twig' => __DIR__.'/../../../src/OC/PlatformBundle/Resources/views/Advert/delete.html.twig',
   'OCPlatformBundle::layout.html.twig' => __DIR__.'/../../../src/OC/PlatformBundle/Resources/views/layout.html.twig',
-  'OCPlatformBundle:Default:index.html.twig' => __DIR__.'/../../../src/OC/PlatformBundle/Resources/views/Default/index.html.twig',
   'OCCoreBundle:Core:index.html.twig' => __DIR__.'/../../../src/OC/CoreBundle/Resources/views/Core/index.html.twig',
   'OCCoreBundle::layout.html.twig' => __DIR__.'/../../../src/OC/CoreBundle/Resources/views/layout.html.twig',
   'OCUserBundle::layout.html.twig' => __DIR__.'/../../../src/OC/UserBundle/Resources/views/layout.html.twig',

@@ -14,11 +14,10 @@ class LoadCategory implements FixtureInterface
   {
     // Liste des noms de catégorie à ajouter
     $names = array(
-      'Développement web',
-      'Développement mobile',
-      'Graphisme',
-      'Intégration',
-      'Réseau'
+      'Fumeur accepté',
+      'Amis des animaux',
+      'Entre filles',
+      'Entre mec'
     );
 
     foreach ($names as $name) {

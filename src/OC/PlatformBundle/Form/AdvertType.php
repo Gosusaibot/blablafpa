@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -21,15 +22,20 @@ class AdvertType extends AbstractType
   public function buildForm(FormBuilderInterface $builder, array $options)
   {
     // Arbitrairement, on récupère toutes les catégories qui commencent par "D"
-    $pattern = 'D%';
+    $pattern = '%';
 
     $builder
       ->add('date',      DateTimeType::class)
       ->add('title',     TextType::class)
+      ->add('title2',     TextType::class)
       ->add('author',    TextType::class)
-      ->add('content',   CkeditorType::class)
-      ->add('image',     ImageType::class)
+      ->add('content',   CkeditorType::class, array('required' => false))
+      ->add('nbplace',     ChoiceType::class, array(
+        'choices' => ['1'=>1,'2'=>2,'3'=>3,'4'=>4,'5'=>5,'6'=>6,'7'=>7,'8'=>8,'9'=>9],
+        ))
+      ->add('image',     ImageType::class, array('required' => false))
       ->add('categories', EntityType::class, array(
+        'required'      => false ,
         'class'         => 'OCPlatformBundle:Category',
         'choice_label'  => 'name',
         'multiple'      => true,

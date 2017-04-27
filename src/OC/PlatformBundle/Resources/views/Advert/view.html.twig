@@ -20,7 +20,9 @@
   </div>
 
   <h2>{{ advert.title }}</h2>
-  <i>Par {{ advert.author }}, le {{ advert.date|date('d/m/Y') }}</i>
+  <i>Par {{ advert.author }},
+   le {{ advert.date|date('d/m/Y') }},
+    nombre de place disponible {{ advert.nbplace }}</i>
 
   <div class="well">
     {{ advert.content }}
@@ -28,7 +30,7 @@
 
   {% if not advert.categories.empty %}
     <p>
-      Cette annonce est parue dans les catégories suivantes :
+      Cette annonce a les caractéristiques suivantes :
       {% for category in advert.categories %}
         {{ category.name }}{% if not loop.last %}, {% endif %}
       {% endfor %}

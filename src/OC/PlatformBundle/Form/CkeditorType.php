@@ -11,9 +11,9 @@ class CkeditorType extends AbstractType
 {
   public function configureOptions(OptionsResolver $resolver)
   {
-    $resolver->setDefaults(array(
-      'attr' => array('class' => 'ckeditor') // On ajoute la classe CSS
-    ));
+    $resolver->setDefaults([
+      'attr' =>['class' => 'ckeditor'] // On ajoute la classe CSS
+    ]);
   }
 
   public function getParent() // On utilise l'héritage de formulaire

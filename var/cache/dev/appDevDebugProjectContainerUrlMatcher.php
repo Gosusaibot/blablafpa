@@ -27,17 +27,9 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         $context = $this->context;
         $request = $this->request;
 
-        if (0 === strpos($pathinfo, '/js/2df548e')) {
-            // _assetic_2df548e
-            if ($pathinfo === '/js/2df548e.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '2df548e',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_2df548e',);
-            }
-
-            // _assetic_2df548e_0
-            if ($pathinfo === '/js/2df548e_part_1_slider_1.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '2df548e',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_2df548e_0',);
-            }
-
+        // _assetic_2df548e
+        if ($pathinfo === '/js/2df548e.js') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => '2df548e',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_2df548e',);
         }
 
         if (0 === strpos($pathinfo, '/css/dee2c48')) {
@@ -139,42 +131,45 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // oc_platform_home
-        if (preg_match('#^/(?P<page>\\d*)?$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_home')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::indexAction',  'page' => 1,));
-        }
-
-        if (0 === strpos($pathinfo, '/ad')) {
-            // oc_platform_view
-            if (0 === strpos($pathinfo, '/advert') && preg_match('#^/advert/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_view')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::viewAction',));
+        if (0 === strpos($pathinfo, '/platform')) {
+            // oc_platform_home
+            if (preg_match('#^/platform(?:/(?P<page>\\d*))?$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_home')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::indexAction',  'page' => 1,));
             }
 
-            // oc_platform_add
-            if ($pathinfo === '/add') {
-                return array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::addAction',  '_route' => 'oc_platform_add',);
+            if (0 === strpos($pathinfo, '/platform/ad')) {
+                // oc_platform_view
+                if (0 === strpos($pathinfo, '/platform/advert') && preg_match('#^/platform/advert/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_view')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::viewAction',));
+                }
+
+                // oc_platform_add
+                if ($pathinfo === '/platform/add') {
+                    return array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::addAction',  '_route' => 'oc_platform_add',);
+                }
+
             }
 
-        }
+            // oc_platform_edit
+            if (0 === strpos($pathinfo, '/platform/edit') && preg_match('#^/platform/edit/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_edit')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::editAction',));
+            }
 
-        // oc_platform_edit
-        if (0 === strpos($pathinfo, '/edit') && preg_match('#^/edit/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_edit')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::editAction',));
-        }
+            // oc_platform_delete
+            if (0 === strpos($pathinfo, '/platform/delete') && preg_match('#^/platform/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_delete')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::deleteAction',));
+            }
 
-        // oc_platform_delete
-        if (0 === strpos($pathinfo, '/delete') && preg_match('#^/delete/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_delete')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::deleteAction',));
-        }
+            // oc_platform_purge
+            if (0 === strpos($pathinfo, '/platform/purge') && preg_match('#^/platform/purge/(?P<days>\\d+)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_purge')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::purgeAction',));
+            }
 
-        // oc_platform_purge
-        if (0 === strpos($pathinfo, '/purge') && preg_match('#^/purge/(?P<days>\\d+)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_purge')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::purgeAction',));
-        }
+            // oc_platform_paramconverter
+            if (0 === strpos($pathinfo, '/platform/test') && preg_match('#^/platform/test/(?P<json>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_paramconverter')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::ParamConverterAction',));
+            }
 
-        // oc_platform_paramconverter
-        if (0 === strpos($pathinfo, '/test') && preg_match('#^/test/(?P<json>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'oc_platform_paramconverter')), array (  '_controller' => 'OC\\PlatformBundle\\Controller\\AdvertController::ParamConverterAction',));
         }
 
         // oc_core_home

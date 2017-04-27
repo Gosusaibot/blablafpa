@@ -15,24 +15,36 @@
 
 
     <div class="col-md-3 col-sm-6">
-    		<span class="thumbnail">
-      			<h4>{{ advert.title }}</h4>
-      			<div class="ratings">
-                    <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-            </div>
-      			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <p>par {{ advert.author }},
-                 le {{ advert.date|date('d/m/Y') }}</p>
-      			<hr class="line">
-      			<div class="row">
+  		<span class="thumbnail">
+  			<h4>Départ de {{ advert.title }}</h4>
+    			<div class="ratings">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+          </div>
+          <p>Destination   {{ advert.title2 | upper }}</p>
+
+          {% if advert.content is not null %}<p>{{ advert.content }}</p>
+          {% else %}<a>sans commentaire</a>
+          {% endif %}
+
+          <p>par {{ advert.author }},
+               le {{ advert.date|date('d/m/Y') }}</p>
+    			<hr class="line">
+
+    			<div class="row">
             <div class="col-md-6 col-sm-6">
-      					<p class="price">$29,90</p>
-      				</div>
-      				<div class="col-md-6 col-sm-6">
-      					<button class="btn btn-success right" href="{{ path('oc_platform_view', {'id': advert.id}) }}"> Plus de détails</button>
-      				</div>
-      				
-      			</div>
+  					 <p class="price">$29,90</p>
+  				  </div>
+  				<div class="col-md-6 col-sm-6">
+  					<a class="link btn btn-success right" href="{{ path('oc_platform_view', {'id': advert.id}) }}">
+              Plus de détails
+            </a>
+  				</div>
+    				
+    			</div>
     		</span>
   		</div>
 

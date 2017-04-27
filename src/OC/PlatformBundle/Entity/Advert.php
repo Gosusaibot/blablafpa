@@ -18,7 +18,6 @@ use Symfony\Component\Validator\Context\ExecutionContextInterface;
  * @ORM\Entity(repositoryClass="OC\PlatformBundle\Repository\AdvertRepository")
  * @ORM\HasLifecycleCallbacks()
  *
- * @UniqueEntity(fields="title", message="Une annonce existe déjà avec ce titre.")
  */
 class Advert
 {
@@ -42,10 +41,16 @@ class Advert
   /**
    * @var string
    *
-   * Et pour être logique, il faudrait aussi mettre la colonne titre en Unique pour Doctrine :
-   * @ORM\Column(name="title", type="string", length=255, unique=true)
+   * @ORM\Column(name="title", type="string", length=255)
    */
   private $title;
+
+  /**
+   * @var string
+   *
+   * @ORM\Column(name="title2", type="string", length=255)
+   */
+  private $title2;
 
   /**
    * @var string
@@ -65,12 +70,17 @@ class Advert
   private $content;
 
   /**
+   * @ORM\Column(name="Nombre_de_place", type="integer")
+   */
+  private $nbplace;
+
+  /**
    * @ORM\Column(name="published", type="boolean")
    */
   private $published = true;
 
   /**
-   * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist", "remove"})
+   * @ORM\OneToOne(targetEntity="OC\PlatformBundle\Entity\Image", cascade={"persist"})
    * @Assert\Valid()
    */
   private $image;
@@ -169,21 +179,6 @@ class Advert
     return $this->date;
   }
 
-  /**
-   * @param string $title
-   */
-  public function setTitle($title)
-  {
-    $this->title = $title;
-  }
-
-  /**
-   * @return string
-   */
-  public function getTitle()
-  {
-    return $this->title;
-  }
 
   /**
    * @param string $author
@@ -341,4 +336,78 @@ class Advert
   {
       return $this->slug;
   }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Advert
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set title2
+     *
+     * @param string $title2
+     *
+     * @return Advert
+     */
+    public function setTitle2($title2)
+    {
+        $this->title2 = $title2;
+
+        return $this;
+    }
+
+    /**
+     * Get title2
+     *
+     * @return string
+     */
+    public function getTitle2()
+    {
+        return $this->title2;
+    }
+
+
+
+    /**
+     * Set nbplace
+     *
+     * @param integer $nbplace
+     *
+     * @return Advert
+     */
+    public function setNbplace($nbplace)
+    {
+        $this->nbplace = $nbplace;
+
+        return $this;
+    }
+
+    /**
+     * Get nbplace
+     *
+     * @return integer
+     */
+    public function getNbplace()
+    {
+        return $this->nbplace;
+    }
 }

@@ -22,29 +22,29 @@ class __TwigTemplate_485bf9f32bf250104aca25dd2bad348279d0096e0be02aa7b5a9774419c
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_9004b1ac6463e7795d17cebc04e9cb9d0c566b05a0cf397eb65758a9992a27ed = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_9004b1ac6463e7795d17cebc04e9cb9d0c566b05a0cf397eb65758a9992a27ed->enter($__internal_9004b1ac6463e7795d17cebc04e9cb9d0c566b05a0cf397eb65758a9992a27ed_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCPlatformBundle:Advert:index.html.twig"));
+        $__internal_02c46fd46db70cf3fe7c24cf2f49c8d52e2cb524221ab3c4316d988168c9d7be = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_02c46fd46db70cf3fe7c24cf2f49c8d52e2cb524221ab3c4316d988168c9d7be->enter($__internal_02c46fd46db70cf3fe7c24cf2f49c8d52e2cb524221ab3c4316d988168c9d7be_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCPlatformBundle:Advert:index.html.twig"));
 
-        $__internal_e65aac1bf34daaf07fb94ca492b276e1759065fef62c1435224ea3e8d9e1b7b5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_e65aac1bf34daaf07fb94ca492b276e1759065fef62c1435224ea3e8d9e1b7b5->enter($__internal_e65aac1bf34daaf07fb94ca492b276e1759065fef62c1435224ea3e8d9e1b7b5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCPlatformBundle:Advert:index.html.twig"));
+        $__internal_a9afe4f3139e28a7258c220f55fd6975ec77b5eb47e8eaa8830e51fc9a9c1cf4 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_a9afe4f3139e28a7258c220f55fd6975ec77b5eb47e8eaa8830e51fc9a9c1cf4->enter($__internal_a9afe4f3139e28a7258c220f55fd6975ec77b5eb47e8eaa8830e51fc9a9c1cf4_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "OCPlatformBundle:Advert:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_9004b1ac6463e7795d17cebc04e9cb9d0c566b05a0cf397eb65758a9992a27ed->leave($__internal_9004b1ac6463e7795d17cebc04e9cb9d0c566b05a0cf397eb65758a9992a27ed_prof);
+        $__internal_02c46fd46db70cf3fe7c24cf2f49c8d52e2cb524221ab3c4316d988168c9d7be->leave($__internal_02c46fd46db70cf3fe7c24cf2f49c8d52e2cb524221ab3c4316d988168c9d7be_prof);
 
         
-        $__internal_e65aac1bf34daaf07fb94ca492b276e1759065fef62c1435224ea3e8d9e1b7b5->leave($__internal_e65aac1bf34daaf07fb94ca492b276e1759065fef62c1435224ea3e8d9e1b7b5_prof);
+        $__internal_a9afe4f3139e28a7258c220f55fd6975ec77b5eb47e8eaa8830e51fc9a9c1cf4->leave($__internal_a9afe4f3139e28a7258c220f55fd6975ec77b5eb47e8eaa8830e51fc9a9c1cf4_prof);
 
     }
 
     // line 5
     public function block_title($context, array $blocks = array())
     {
-        $__internal_87948abf2d07cb4a68178766ac2d3b6b88eb5e51883c645463f48f6ad4133f93 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_87948abf2d07cb4a68178766ac2d3b6b88eb5e51883c645463f48f6ad4133f93->enter($__internal_87948abf2d07cb4a68178766ac2d3b6b88eb5e51883c645463f48f6ad4133f93_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_c2d8b99a6a38ec7d847901b952ad5931a108f14731e8c10b508c24f29e56ef05 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_c2d8b99a6a38ec7d847901b952ad5931a108f14731e8c10b508c24f29e56ef05->enter($__internal_c2d8b99a6a38ec7d847901b952ad5931a108f14731e8c10b508c24f29e56ef05_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
-        $__internal_f7b85402931c792b278c7bbfc8f3a456631dfae43134107b97df1b59b4a5f32c = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_f7b85402931c792b278c7bbfc8f3a456631dfae43134107b97df1b59b4a5f32c->enter($__internal_f7b85402931c792b278c7bbfc8f3a456631dfae43134107b97df1b59b4a5f32c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_e017500cdab5038d759b8d4b71f55e855e749dac69986022bb33aea83fb3d1d9 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e017500cdab5038d759b8d4b71f55e855e749dac69986022bb33aea83fb3d1d9->enter($__internal_e017500cdab5038d759b8d4b71f55e855e749dac69986022bb33aea83fb3d1d9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         // line 6
         echo "  Accueil - ";
@@ -52,21 +52,21 @@ class __TwigTemplate_485bf9f32bf250104aca25dd2bad348279d0096e0be02aa7b5a9774419c
         echo "
 ";
         
-        $__internal_f7b85402931c792b278c7bbfc8f3a456631dfae43134107b97df1b59b4a5f32c->leave($__internal_f7b85402931c792b278c7bbfc8f3a456631dfae43134107b97df1b59b4a5f32c_prof);
+        $__internal_e017500cdab5038d759b8d4b71f55e855e749dac69986022bb33aea83fb3d1d9->leave($__internal_e017500cdab5038d759b8d4b71f55e855e749dac69986022bb33aea83fb3d1d9_prof);
 
         
-        $__internal_87948abf2d07cb4a68178766ac2d3b6b88eb5e51883c645463f48f6ad4133f93->leave($__internal_87948abf2d07cb4a68178766ac2d3b6b88eb5e51883c645463f48f6ad4133f93_prof);
+        $__internal_c2d8b99a6a38ec7d847901b952ad5931a108f14731e8c10b508c24f29e56ef05->leave($__internal_c2d8b99a6a38ec7d847901b952ad5931a108f14731e8c10b508c24f29e56ef05_prof);
 
     }
 
     // line 9
     public function block_ocplatform_body($context, array $blocks = array())
     {
-        $__internal_f7a63e305ee563ee70610c346df5bf3e2aff245a3f5b8ca0889f2e741baa18bf = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_f7a63e305ee563ee70610c346df5bf3e2aff245a3f5b8ca0889f2e741baa18bf->enter($__internal_f7a63e305ee563ee70610c346df5bf3e2aff245a3f5b8ca0889f2e741baa18bf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ocplatform_body"));
+        $__internal_2acd63bbe672dc5d1fcd550fb2c25a756f734a4960b53c5c0923a9dfea35d393 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_2acd63bbe672dc5d1fcd550fb2c25a756f734a4960b53c5c0923a9dfea35d393->enter($__internal_2acd63bbe672dc5d1fcd550fb2c25a756f734a4960b53c5c0923a9dfea35d393_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ocplatform_body"));
 
-        $__internal_6dc3c14e832b1a0063334c5af76b9c3f9687c40bd034e4f7e8b75159d569e3ca = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_6dc3c14e832b1a0063334c5af76b9c3f9687c40bd034e4f7e8b75159d569e3ca->enter($__internal_6dc3c14e832b1a0063334c5af76b9c3f9687c40bd034e4f7e8b75159d569e3ca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ocplatform_body"));
+        $__internal_1475ee1b8403c8ae1a42839d6eb0bfb848f9edd6f80f62cfce600735dd2bc34b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_1475ee1b8403c8ae1a42839d6eb0bfb848f9edd6f80f62cfce600735dd2bc34b->enter($__internal_1475ee1b8403c8ae1a42839d6eb0bfb848f9edd6f80f62cfce600735dd2bc34b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "ocplatform_body"));
 
         // line 10
         echo "
@@ -83,36 +83,61 @@ class __TwigTemplate_485bf9f32bf250104aca25dd2bad348279d0096e0be02aa7b5a9774419c
 
 
     <div class=\"col-md-3 col-sm-6\">
-    \t\t<span class=\"thumbnail\">
-      \t\t\t<h4>";
+  \t\t<span class=\"thumbnail\">
+  \t\t\t<h4>Départ de ";
             // line 19
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["advert"], "title", array()), "html", null, true);
             echo "</h4>
-      \t\t\t<div class=\"ratings\">
-                    <i class=\"fa fa-star\"></i><i class=\"fa fa-star\"></i><i class=\"fa fa-star\"></i><i class=\"fa fa-star\"></i><i class=\"fa fa-star\"></i>
-            </div>
-      \t\t\t<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <p>par ";
-            // line 24
+    \t\t\t<div class=\"ratings\">
+            <i class=\"fa fa-star\"></i>
+            <i class=\"fa fa-star\"></i>
+            <i class=\"fa fa-star\"></i>
+            <i class=\"fa fa-star\"></i>
+            <i class=\"fa fa-star\"></i>
+          </div>
+          <p>Destination   ";
+            // line 27
+            echo twig_escape_filter($this->env, twig_upper_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["advert"], "title2", array())), "html", null, true);
+            echo "</p>
+
+          ";
+            // line 29
+            if ( !(null === twig_get_attribute($this->env, $this->getSourceContext(), $context["advert"], "content", array()))) {
+                echo "<p>";
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["advert"], "content", array()), "html", null, true);
+                echo "</p>
+          ";
+            } else {
+                // line 30
+                echo "<a>sans commentaire</a>
+          ";
+            }
+            // line 32
+            echo "
+          <p>par ";
+            // line 33
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["advert"], "author", array()), "html", null, true);
             echo ",
-                 le ";
-            // line 25
+               le ";
+            // line 34
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->getSourceContext(), $context["advert"], "date", array()), "d/m/Y"), "html", null, true);
             echo "</p>
-      \t\t\t<hr class=\"line\">
-      \t\t\t<div class=\"row\">
+    \t\t\t<hr class=\"line\">
+
+    \t\t\t<div class=\"row\">
             <div class=\"col-md-6 col-sm-6\">
-      \t\t\t\t\t<p class=\"price\">\$29,90</p>
-      \t\t\t\t</div>
-      \t\t\t\t<div class=\"col-md-6 col-sm-6\">
-      \t\t\t\t\t<button class=\"btn btn-success right\" href=\"";
-            // line 32
+  \t\t\t\t\t <p class=\"price\">\$29,90</p>
+  \t\t\t\t  </div>
+  \t\t\t\t<div class=\"col-md-6 col-sm-6\">
+  \t\t\t\t\t<a class=\"link btn btn-success right\" href=\"";
+            // line 42
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("oc_platform_view", array("id" => twig_get_attribute($this->env, $this->getSourceContext(), $context["advert"], "id", array()))), "html", null, true);
-            echo "\"> Plus de détails</button>
-      \t\t\t\t</div>
-      \t\t\t\t
-      \t\t\t</div>
+            echo "\">
+              Plus de détails
+            </a>
+  \t\t\t\t</div>
+    \t\t\t\t
+    \t\t\t</div>
     \t\t</span>
   \t\t</div>
 
@@ -121,14 +146,14 @@ class __TwigTemplate_485bf9f32bf250104aca25dd2bad348279d0096e0be02aa7b5a9774419c
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 41
+            // line 53
             echo "      <div class=\"col-lg-4\">Pas (encore !) d'annonces</div>
     ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['advert'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 43
+        // line 55
         echo "        
  </div><!-- /.row -->
 
@@ -154,19 +179,19 @@ class __TwigTemplate_485bf9f32bf250104aca25dd2bad348279d0096e0be02aa7b5a9774419c
 
    <ul class=\"pagination\">
     ";
-        // line 68
+        // line 80
         echo "    ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["nbPages"]) || array_key_exists("nbPages", $context) ? $context["nbPages"] : (function () { throw new Twig_Error_Runtime('Variable "nbPages" does not exist.', 68, $this->getSourceContext()); })())));
+        $context['_seq'] = twig_ensure_traversable(range(1, (isset($context["nbPages"]) || array_key_exists("nbPages", $context) ? $context["nbPages"] : (function () { throw new Twig_Error_Runtime('Variable "nbPages" does not exist.', 80, $this->getSourceContext()); })())));
         foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
-            // line 69
+            // line 81
             echo "      <li";
-            if (($context["p"] == (isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 69, $this->getSourceContext()); })()))) {
+            if (($context["p"] == (isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 81, $this->getSourceContext()); })()))) {
                 echo " class=\"active\"";
             }
             echo ">
         <a href=\"";
-            // line 70
+            // line 82
             echo twig_escape_filter($this->env, $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("oc_platform_home", array("page" => $context["p"])), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $context["p"], "html", null, true);
@@ -177,15 +202,15 @@ class __TwigTemplate_485bf9f32bf250104aca25dd2bad348279d0096e0be02aa7b5a9774419c
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 73
+        // line 85
         echo "  </ul>
 
 ";
         
-        $__internal_6dc3c14e832b1a0063334c5af76b9c3f9687c40bd034e4f7e8b75159d569e3ca->leave($__internal_6dc3c14e832b1a0063334c5af76b9c3f9687c40bd034e4f7e8b75159d569e3ca_prof);
+        $__internal_1475ee1b8403c8ae1a42839d6eb0bfb848f9edd6f80f62cfce600735dd2bc34b->leave($__internal_1475ee1b8403c8ae1a42839d6eb0bfb848f9edd6f80f62cfce600735dd2bc34b_prof);
 
         
-        $__internal_f7a63e305ee563ee70610c346df5bf3e2aff245a3f5b8ca0889f2e741baa18bf->leave($__internal_f7a63e305ee563ee70610c346df5bf3e2aff245a3f5b8ca0889f2e741baa18bf_prof);
+        $__internal_2acd63bbe672dc5d1fcd550fb2c25a756f734a4960b53c5c0923a9dfea35d393->leave($__internal_2acd63bbe672dc5d1fcd550fb2c25a756f734a4960b53c5c0923a9dfea35d393_prof);
 
     }
 
@@ -201,7 +226,7 @@ class __TwigTemplate_485bf9f32bf250104aca25dd2bad348279d0096e0be02aa7b5a9774419c
 
     public function getDebugInfo()
     {
-        return array (  181 => 73,  170 => 70,  163 => 69,  158 => 68,  132 => 43,  125 => 41,  111 => 32,  101 => 25,  97 => 24,  89 => 19,  82 => 14,  77 => 13,  72 => 10,  63 => 9,  50 => 6,  41 => 5,  11 => 3,);
+        return array (  206 => 85,  195 => 82,  188 => 81,  183 => 80,  157 => 55,  150 => 53,  134 => 42,  123 => 34,  119 => 33,  116 => 32,  112 => 30,  105 => 29,  100 => 27,  89 => 19,  82 => 14,  77 => 13,  72 => 10,  63 => 9,  50 => 6,  41 => 5,  11 => 3,);
     }
 
     public function getSourceContext()
@@ -223,24 +248,36 @@ class __TwigTemplate_485bf9f32bf250104aca25dd2bad348279d0096e0be02aa7b5a9774419c
 
 
     <div class=\"col-md-3 col-sm-6\">
-    \t\t<span class=\"thumbnail\">
-      \t\t\t<h4>{{ advert.title }}</h4>
-      \t\t\t<div class=\"ratings\">
-                    <i class=\"fa fa-star\"></i><i class=\"fa fa-star\"></i><i class=\"fa fa-star\"></i><i class=\"fa fa-star\"></i><i class=\"fa fa-star\"></i>
-            </div>
-      \t\t\t<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. </p>
-            <p>par {{ advert.author }},
-                 le {{ advert.date|date('d/m/Y') }}</p>
-      \t\t\t<hr class=\"line\">
-      \t\t\t<div class=\"row\">
+  \t\t<span class=\"thumbnail\">
+  \t\t\t<h4>Départ de {{ advert.title }}</h4>
+    \t\t\t<div class=\"ratings\">
+            <i class=\"fa fa-star\"></i>
+            <i class=\"fa fa-star\"></i>
+            <i class=\"fa fa-star\"></i>
+            <i class=\"fa fa-star\"></i>
+            <i class=\"fa fa-star\"></i>
+          </div>
+          <p>Destination   {{ advert.title2 | upper }}</p>
+
+          {% if advert.content is not null %}<p>{{ advert.content }}</p>
+          {% else %}<a>sans commentaire</a>
+          {% endif %}
+
+          <p>par {{ advert.author }},
+               le {{ advert.date|date('d/m/Y') }}</p>
+    \t\t\t<hr class=\"line\">
+
+    \t\t\t<div class=\"row\">
             <div class=\"col-md-6 col-sm-6\">
-      \t\t\t\t\t<p class=\"price\">\$29,90</p>
-      \t\t\t\t</div>
-      \t\t\t\t<div class=\"col-md-6 col-sm-6\">
-      \t\t\t\t\t<button class=\"btn btn-success right\" href=\"{{ path('oc_platform_view', {'id': advert.id}) }}\"> Plus de détails</button>
-      \t\t\t\t</div>
-      \t\t\t\t
-      \t\t\t</div>
+  \t\t\t\t\t <p class=\"price\">\$29,90</p>
+  \t\t\t\t  </div>
+  \t\t\t\t<div class=\"col-md-6 col-sm-6\">
+  \t\t\t\t\t<a class=\"link btn btn-success right\" href=\"{{ path('oc_platform_view', {'id': advert.id}) }}\">
+              Plus de détails
+            </a>
+  \t\t\t\t</div>
+    \t\t\t\t
+    \t\t\t</div>
     \t\t</span>
   \t\t</div>
 
